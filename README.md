@@ -59,8 +59,10 @@ For differentiation and integration, the polynomial entered in the **first text 
 
 ## **Design**  
 The graphical user interface allows users to input polynomials through text fields.  
+![Screenshot 2025-03-02 123603](https://github.com/user-attachments/assets/6343eb08-c1d1-4986-b03a-491479ab2878)
 
 In the example below, the sum of two polynomials is computed after pressing the "Add" button.  
+![Screenshot 2025-03-02 123610](https://github.com/user-attachments/assets/1f8d2f7e-ade9-4d21-95ce-bbec59529c37)
 
 The project includes two main classes:  
 - **Monomial** and **Polynomial**  
