@@ -1,93 +1,128 @@
-# PT2024_30224_Sabau_Emanuela_Assigment_1
+# **Table of Contents**  
+1. [**Project Objective**](#project-objective)  
+2. [**Problem Analysis, Modeling, Scenarios, and Use Cases**](#problem-analysis-modeling-scenarios-and-use-cases)  
+   - 2.1. [**Functional Requirements**](#functional-requirements)  
+   - 2.2. [**Use Cases**](#use-cases)  
+3. [**Design**](#design)  
+4. [**Implementation**](#implementation)  
+   - 4.1. [**Main Classes**](#main-classes)  
+   - 4.2. [**User Interface**](#user-interface)  
+5. [**Results**](#results)  
+   - 5.1. [**Test Scenarios**](#test-scenarios)  
+   - 5.2. [**JUnit Results**](#junit-results)  
+6. [**Conclusions**](#conclusions)  
+7. [**Bibliography**](#bibliography)  
 
+---
 
+## **Project Objective**  
+The objective of this project is to develop a **polynomial calculator** that can perform various operations on polynomials.  
 
-## Getting started
+To achieve this:  
+- A **graphical user interface (GUI)** has been implemented for user interaction.  
+- Operations such as **addition, subtraction, multiplication, differentiation, and integration** have been defined.  
+- **HashMaps** have been used for easier polynomial manipulation.  
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+---
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## **Problem Analysis, Modeling, Scenarios, and Use Cases**  
 
-## Add your files
+### **Functional Requirements**  
+- The user can input **two polynomials** in the format `coefficient*x^exponent`.  
+- The user selects the desired operation: **addition, subtraction, multiplication, division, differentiation, or integration**.  
+- The result is displayed in the **graphical interface**.  
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+### **Use Cases**  
+- **Addition of polynomials:**  
+  - The user enters two polynomials.  
+  - The "ADD" button is pressed.  
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/pt2024_30224_sabau_emanuela/pt2024_30224_sabau_emanuela_assigment_1.git
-git branch -M main
-git push -uf origin main
-```
+- **Subtraction of polynomials:**  
+  - The user enters two polynomials.  
+  - The "SUBTRACT" button is pressed.  
 
-## Integrate with your tools
+- **Multiplication of polynomials:**  
+  - The user enters two polynomials.  
+  - The "MULTIPLY" button is pressed.  
 
-- [ ] [Set up project integrations](https://gitlab.com/pt2024_30224_sabau_emanuela/pt2024_30224_sabau_emanuela_assigment_1/-/settings/integrations)
+- **Differentiation of a polynomial:**  
+  - The user enters the coefficients and exponents of the polynomial to be differentiated.  
+  - The "DERIVATIVE" button is pressed.  
 
-## Collaborate with your team
+- **Integration of a polynomial:**  
+  - The user enters the coefficients and exponents of the polynomial to be integrated.  
+  - The "INTEGRATION" button is pressed.  
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+For differentiation and integration, the polynomial entered in the **first text box** is considered.  
 
-## Test and Deploy
+---
 
-Use the built-in continuous integration in GitLab.
+## **Design**  
+The graphical user interface allows users to input polynomials through text fields.  
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+In the example below, the sum of two polynomials is computed after pressing the "Add" button.  
 
-***
+The project includes two main classes:  
+- **Monomial** and **Polynomial**  
+- The **Polynomial** class contains a `HashMap` of monomials and the `addMonomials` method for polynomial creation.  
 
-# Editing this README
+Operations on polynomials are implemented in a separate **Operations** class. When a button is pressed, the corresponding polynomial operation is executed.  
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+---
 
-## Suggestions for a good README
+## **Implementation**  
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+### **Main Classes**  
+- **Polynomial**: Uses a `HashMap` to store monomials.  
+- **Monomial**: Represents a single term with its coefficient and exponent.  
+- **Operations**: Contains methods to perform polynomial operations.  
 
-## Name
-Choose a self-explaining name for your project.
+### **User Interface**  
+The user interface allows polynomial input and operation selection.  
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+The following classes handle the UI:  
+- **View**: Defines the layout (buttons, text fields).  
+- **Controller**: Implements methods like `actionPerformed`, ensuring each UI element functions properly.  
+  - Example: Pressing the **"Integration"** button triggers polynomial integration.  
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+---
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+## **Results**  
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+### **Test Scenarios**  
+- **Addition**  
+- **Subtraction**  
+- **Multiplication**  
+  
+For these operations, two polynomials must be provided. If one is missing, it is considered **zero**.  
+  
+- **Differentiation**  
+- **Integration**  
+  
+For these operations, only the polynomial in the **first text field** is considered.  
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+### **JUnit Results**  
+Unit tests using **JUnit** validate the correctness of the polynomial operations.  
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+By implementing and testing these functionalities, the project demonstrates an accurate and efficient **polynomial calculator**.  
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+---
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+## **Conclusions**  
+A **graphical polynomial calculator** was successfully implemented, providing an intuitive and efficient way to perform polynomial operations.  
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+Future improvements could include:  
+- A **more visually appealing interface**.  
+- Improved polynomial input format (e.g., allowing `6x` instead of `6x^1`).  
+- Adding **division** functionality.  
+- Expanding operations beyond polynomials to other mathematical objects.  
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+---
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## **Bibliography**  
+- What are Java classes? - [http://www.tutorialspoint.com](http://www.tutorialspoint.com)  
+- **Fundamental Programming Techniques** - [https://dsrl.eu/courses/pt/](https://dsrl.eu/courses/pt/)  
+- **Java Swing Examples** - [https://gitlab.com/dsrl-pt/pt-gui-demo-swing](https://gitlab.com/dsrl-pt/pt-gui-demo-swing)  
+- **JUnit 5 User Guide** - [https://junit.org/junit5/docs/current/user-guide/](https://junit.org/junit5/docs/current/user-guide/)  
+- **Parameterized Tests in JUnit 5** - [https://www.baeldung.com/parameterized-tests-junit-5](https://www.baeldung.com/parameterized-tests-junit-5)  
+- **Polynomial Parser** - [https://stackoverflow.com/questions/26883037/polynomial-string-not-split](https://stackoverflow.com/questions/26883037/polynomial-string-not-split)
